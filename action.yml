@@ -15,13 +15,12 @@ runs:
   using: "composite"
   steps:
   - name: Setup and run action
-    shell: bash
     if: $${{ runner.os == 'Windows' && inputs.version == '5.6.3_windows' }}
     run: |
-      mkdir -p ${{ inputs.dir }}
+      New-Item -ItemType Directory -Force -Path ${{ inputs.dir }}
       cd ${{ inputs.dir }}
-      curl -L https://github.com/orestonce/action/releases/download/qt-static5.6.3/Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104-ManualPatchSslLib.7z -o Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104-ManualPatchSslLib.7z
-      curl -L https://github.com/orestonce/action/releases/download/qt-static5.6.3/i686-4.9.4-release-posix-dwarf-rt_v5-rev0.7z -o i686-4.9.4-release-posix-dwarf-rt_v5-rev0.7z
+      Invoke-WebRequest -URI https://github.com/orestonce/action/releases/download/qt-static5.6.3/Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104-ManualPatchSslLib.7z -OutFile Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104-ManualPatchSslLib.7z
+      Invoke-WebRequest -URI https://github.com/orestonce/action/releases/download/qt-static5.6.3/i686-4.9.4-release-posix-dwarf-rt_v5-rev0.7z -OutFile i686-4.9.4-release-posix-dwarf-rt_v5-rev0.7z
       7z x Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104-ManualPatchSslLib.7z
       7z x i686-4.9.4-release-posix-dwarf-rt_v5-rev0.7z
       dir
