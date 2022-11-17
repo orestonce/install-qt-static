@@ -27,6 +27,6 @@ runs:
       dir
       echo "${PWD}/Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104/bin" >> $GITHUB_PATH
       echo "${PWD}/mingw32/bin" >> $GITHUB_PATH
-      cat $GITHUB_PATH
+      #cat $GITHUB_PATH
       #go run install-qt-static.go -dir ${{ inputs.dir }} -version ${{ inputs.version }}
 
