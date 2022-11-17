@@ -12,9 +12,9 @@ inputs:
     description: Version of Qt to install
     default: "5.6.3_windows"
 runs:
+  using: "composite"
   steps:
   - name: Setup and run action
-    using: "composite"
     shell: powershell
     if: $${{ runner.os == 'Windows' && inputs.version == '5.6.3_windows' }}
     run: |
