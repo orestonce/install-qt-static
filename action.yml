@@ -15,7 +15,7 @@ runs:
   steps:
   - name: Setup and run action
     shell: bash
-    if: $${{ runner.os == 'Windows' and inputs.version == "5.6.3_windows" }}
+    if: $${{ runner.os == 'Windows' && inputs.version == "5.6.3_windows" }}
     run: |
       if not exist ${{ inputs.dir }} mkdir ${{ inputs.dir }}
       cd ${{ inputs.dir }}
