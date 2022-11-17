@@ -12,30 +12,32 @@ inputs:
     description: Version of Qt to install
     default: "Qt5.15.7-Windows-x86-MinGW8.1.0-staticFull-20221104"
 runs:
+  if: $${{ runner.os == 'Windows' && inputs.version == 'Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104' }}
   using: "composite"
   steps:
   - name: Check if "Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104"
     shell: powershell
-    if: $${{ runner.os == 'Windows' && inputs.version == 'Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104' }}
-      run: |
-        New-Item -ItemType Directory -Force -Path ${{ inputs.dir }}
-        cd ${{ inputs.dir }}
-        Invoke-WebRequest -URI https://github.com/orestonce/action/releases/download/qt-static5.6.3/Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104-ManualPatchSslLib.7z -OutFile Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104-ManualPatchSslLib.7z
-        Invoke-WebRequest -URI https://github.com/orestonce/action/releases/download/qt-static5.6.3/i686-4.9.4-release-posix-dwarf-rt_v5-rev0.7z -OutFile i686-4.9.4-release-posix-dwarf-rt_v5-rev0.7z
-        7z x Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104-ManualPatchSslLib.7z
-        7z x i686-4.9.4-release-posix-dwarf-rt_v5-rev0.7z
-        Add-Content $env:GITHUB_PATH "${PWD}/mingw32/bin"
-        Add-Content $env:GITHUB_PATH "${PWD}/Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104/bin"
+    run: |
+      New-Item -ItemType Directory -Force -Path ${{ inputs.dir }}
+      cd ${{ inputs.dir }}
+      Invoke-WebRequest -URI https://github.com/orestonce/action/releases/download/qt-static5.6.3/Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104-ManualPatchSslLib.7z -OutFile Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104-ManualPatchSslLib.7z
+      Invoke-WebRequest -URI https://github.com/orestonce/action/releases/download/qt-static5.6.3/i686-4.9.4-release-posix-dwarf-rt_v5-rev0.7z -OutFile i686-4.9.4-release-posix-dwarf-rt_v5-rev0.7z
+      7z x Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104-ManualPatchSslLib.7z
+      7z x i686-4.9.4-release-posix-dwarf-rt_v5-rev0.7z
+      Add-Content $env:GITHUB_PATH "${PWD}/mingw32/bin"
+      Add-Content $env:GITHUB_PATH "${PWD}/Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104/bin"
+  if: $${{ runner.os == 'Windows' && inputs.version == 'Qt5.15.7-Windows-x86-MinGW8.1.0-staticFull-20221104' }}
+  using: "composite"
+  steps:
   - name: Check if "Qt5.15.7-Windows-x86-MinGW8.1.0-staticFull-20221104"
     shell: powershell
-    if: $${{ runner.os == 'Windows' && inputs.version == 'Qt5.15.7-Windows-x86-MinGW8.1.0-staticFull-20221104' }}
-      run: |
-        New-Item -ItemType Directory -Force -Path ${{ inputs.dir }}
-        cd ${{ inputs.dir }}
-        dir
-        Invoke-WebRequest -URI https://github.com/orestonce/action/releases/download/qt5.15.7/Qt5.15.7-Windows-x86-MinGW8.1.0-staticFull-20221104.7z -OutFile Qt5.15.7-Windows-x86-MinGW8.1.0-staticFull-20221104.7z
-        Invoke-WebRequest -URI https://github.com/orestonce/action/releases/download/qt5.15.7/i686-8.1.0-release-posix-dwarf-rt_v6-rev0.7z -OutFile i686-8.1.0-release-posix-dwarf-rt_v6-rev0.7z
-        7z x Qt5.15.7-Windows-x86-MinGW8.1.0-staticFull-20221104.7z
-        7z x i686-8.1.0-release-posix-dwarf-rt_v6-rev0.7z
-        Add-Content $env:GITHUB_PATH "${PWD}/mingw32/bin"
-        Add-Content $env:GITHUB_PATH "${PWD}/Qt5.15.7-Windows-x86-MinGW8.1.0-staticFull/bin"
+    run: |
+      New-Item -ItemType Directory -Force -Path ${{ inputs.dir }}
+      cd ${{ inputs.dir }}
+      dir
+      Invoke-WebRequest -URI https://github.com/orestonce/action/releases/download/qt5.15.7/Qt5.15.7-Windows-x86-MinGW8.1.0-staticFull-20221104.7z -OutFile Qt5.15.7-Windows-x86-MinGW8.1.0-staticFull-20221104.7z
+      Invoke-WebRequest -URI https://github.com/orestonce/action/releases/download/qt5.15.7/i686-8.1.0-release-posix-dwarf-rt_v6-rev0.7z -OutFile i686-8.1.0-release-posix-dwarf-rt_v6-rev0.7z
+      7z x Qt5.15.7-Windows-x86-MinGW8.1.0-staticFull-20221104.7z
+      7z x i686-8.1.0-release-posix-dwarf-rt_v6-rev0.7z
+      Add-Content $env:GITHUB_PATH "${PWD}/mingw32/bin"
+      Add-Content $env:GITHUB_PATH "${PWD}/Qt5.15.7-Windows-x86-MinGW8.1.0-staticFull/bin"
