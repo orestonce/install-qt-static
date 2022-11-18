@@ -37,6 +37,14 @@ runs:
               $var_mingw_path = "/mingw32/bin"
               break
             }
+            "Qt5.15.7-Windows-x86_64-MinGW8.1.0-staticFull-20221104" {
+              $var_qt_URL = "https://github.com/orestonce/action/releases/download/qt5.15.7/Qt5.15.7-Windows-x86_64-MinGW8.1.0-staticFull-20221104.7z"
+              $var_qt_7z = $var_qt_URL.Substring($var_qt_URL.lastIndexOf('/')+1)
+              $var_mingw_URL = "https://github.com/orestonce/action/releases/download/qt5.15.7/x86_64-8.1.0-release-posix-seh-rt_v6-rev0.7z"
+              $var_mingw_7z = $var_mingw_URL.Substring($var_mingw_URL.lastIndexOf('/')+1)
+              $var_qt_path = "/Qt5.15.7-Windows-x86_64-MinGW8.1.0-staticFull/bin"
+              $var_mingw_path = "/mingw64/bin"
+            }
             default {
                echo "::error invalid version value: ${{ inputs.version }}"
             }
