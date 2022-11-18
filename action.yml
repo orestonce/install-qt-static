@@ -44,9 +44,12 @@ runs:
               $var_mingw_7z = $var_mingw_URL.Substring($var_mingw_URL.lastIndexOf('/')+1)
               $var_qt_path = "/Qt5.15.7-Windows-x86_64-MinGW8.1.0-staticFull/bin"
               $var_mingw_path = "/mingw64/bin"
+              break
             }
             default {
-               echo "::error invalid version value: ${{ inputs.version }}"
+               echo "invalid version value: ${{ inputs.version }}"
+               exit -1
+               break
             }
           }
       New-Item -ItemType Directory -Force -Path ${{ inputs.dir }}
