@@ -15,3 +15,7 @@ action to install static qt to windows
   * [x] Qt5.15.7-Windows-x86_64-MinGW8.1.0-staticFull-20221104
 * runner.os support
   * [x] Windows
+  
+  
+# TODO
+  * [ ] cache
