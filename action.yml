@@ -49,13 +49,13 @@ runs:
                break
             }
           }
-      $var_mingw_7z = $var_mingw_URL.Substring($var_mingw_URL.lastIndexOf('/')+1)
       $var_qt_7z = $var_qt_URL.Substring($var_qt_URL.lastIndexOf('/')+1)
+      $var_mingw_7z = $var_mingw_URL.Substring($var_mingw_URL.lastIndexOf('/')+1)
       
       New-Item -ItemType Directory -Force -Path ${{ inputs.dir }}
       cd ${{ inputs.dir }}
       Invoke-WebRequest -URI $var_qt_URL    -OutFile $var_qt_7z
-      Invoke-WebRequest -URI $var_mingw_URL -OutFile $
+      Invoke-WebRequest -URI $var_mingw_URL -OutFile $var_mingw_7z
       
       
       7z x $var_qt_7z
