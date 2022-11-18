@@ -62,3 +62,6 @@ runs:
       7z x $var_mingw_7z
       Add-Content $env:GITHUB_PATH "${PWD}$($var_qt_path)"
       Add-Content $env:GITHUB_PATH "${PWD}$($var_mingw_path)"
+      if ( '${{ input.version }}' -eq 'Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104') {
+          .\Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104\QQtPatcher.exe
+      }
