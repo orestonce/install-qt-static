@@ -4,7 +4,7 @@ action to install static qt
 ## usage
 ````yml
 - name: install qt static
-    uses: orestonce/install-qt-static@v0.2.7
+    uses: orestonce/install-qt-static@v0.2.8
     with:
       version: Qt5.15.7-Windows-x86_64-MinGW8.1.0-staticFull-20221104
       dir: qt_static_install
