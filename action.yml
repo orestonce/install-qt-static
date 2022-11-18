@@ -17,6 +17,10 @@ runs:
   - name: install Qt static of windows
     shell: powershell
     run: |
+      if ( '${{ runner.os }}' -ne 'Windows') {
+          echo "invalid runner.os value: ${{ runner.os }}"
+          exit -2
+      }
       switch ( "${{ inputs.version }}" ) {
             "Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104" {
               $var_qt_URL = "https://github.com/orestonce/action/releases/download/qt-static5.6.3/Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104-ManualPatchSslLib.7z"
