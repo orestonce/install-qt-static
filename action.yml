@@ -76,11 +76,9 @@ runs:
   - name: setup Qt env
     shell: powershell
     run: |
-      pwd
       cd ${{ inputs.dir }}
-      Add-Content $env:GITHUB_PATH "${PWD}/qt_install"
-      Add-Content $env:GITHUB_PATH "${PWD}/mingw_install"
+      Add-Content $env:GITHUB_PATH "${PWD}\qt_install\bin"
+      Add-Content $env:GITHUB_PATH "${PWD}\mingw_install\bin"
       if ( '${{ inputs.version }}' -eq 'Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104') {
-        echo "run QQtPatcher.exe"
         .\qt_install\QQtPatcher.exe
       }
