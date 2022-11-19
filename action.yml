@@ -74,13 +74,13 @@ runs:
           move '$($var_mingw_path)' mingw_install
       }
   - name: setup Qt env
-  shell: powershell
-  run: |
-    pwd
-    cd cd ${{ inputs.dir }}
-    Add-Content $env:GITHUB_PATH "${PWD}/qt_install"
-    Add-Content $env:GITHUB_PATH "${PWD}/mingw_install"
-    if ( '${{ inputs.version }}' -eq 'Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104') {
+    shell: powershell
+    run: |
+      pwd
+      cd ${{ inputs.dir }}
+      Add-Content $env:GITHUB_PATH "${PWD}/qt_install"
+      Add-Content $env:GITHUB_PATH "${PWD}/mingw_install"
+      if ( '${{ inputs.version }}' -eq 'Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104') {
         echo "run QQtPatcher.exe"
         .\qt_install\Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104\QQtPatcher.exe
-    }
+      }
