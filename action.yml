@@ -64,9 +64,12 @@ runs:
       Invoke-WebRequest -URI $var_qt_URL    -OutFile $var_qt_7z
       Invoke-WebRequest -URI $var_mingw_URL -OutFile $var_mingw_7z
       
-      
       7z x $var_qt_7z
       7z x $var_mingw_7z
+      
+      Remove-Item -Recurse -Force $var_qt_7z
+      Remove-Item -Recurse -Force $var_mingw_7z
+      
       if ( $var_qt_dir_name -ne 'qt_install') {
           move $var_qt_dir_name qt_install
       }
