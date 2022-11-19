@@ -67,11 +67,11 @@ runs:
       
       7z x $var_qt_7z
       7z x $var_mingw_7z
-      if ( '$($var_qt_dir_name)' -ne 'qt_install') {
-          move '$($var_qt_dir_name)' qt_install
+      if ( $var_qt_dir_name -ne 'qt_install') {
+          move $var_qt_dir_name qt_install
       }
-      if ( '$($var_mingw_dir_name)' -ne 'mingw_install') {
-          move '$($var_mingw_dir_name)' mingw_install
+      if ( $var_mingw_dir_name -ne 'mingw_install') {
+          move $var_mingw_dir_name mingw_install
       }
   - name: setup Qt env
     shell: powershell
