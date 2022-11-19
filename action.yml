@@ -19,7 +19,7 @@ runs:
     uses: actions/cache@v3
     with:
       path: ${{ inputs.dir }}
-      key: ${{ inputs.version }}-cache_orestonce_install-qt-static
+      key: ${{ inputs.version }}-cache_orestonce_install-qt-static2
   - name: install Qt static of windows to dir
     if: steps.cache_orestonce_install-qt-static.outputs.cache-hit != 'true'
     shell: powershell
