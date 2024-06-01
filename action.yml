@@ -50,6 +50,13 @@ runs:
               $var_mingw_dir_name = "mingw64"
               break
             }
+            "Qt6.5.3-Windows-x86_64-MinGW13.2.0-ucrt-staticFull-20240527" {
+              $var_qt_URL = "https://github.com/orestonce/action/releases/download/qt6.5.3/Qt6.5.3-Windows-x86_64-MinGW13.2.0-ucrt-staticFull-20240527.7z"
+              $var_mingw_URL = "https://github.com/orestonce/action/releases/download/qt6.5.3/x86_64-13.2.0-release-posix-seh-ucrt-rt_v11-rev1.7z"
+              $var_qt_dir_name = "Qt6.5.3-Windows-x86_64-MinGW13.2.0-ucrt-staticFull"
+              $var_mingw_dir_name = "mingw64"
+              break
+            }
             default {
                echo "invalid version value: ${{ inputs.version }}"
                exit -1
